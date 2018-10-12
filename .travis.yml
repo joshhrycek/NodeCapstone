@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: h4V9ftrEFwZElAUFBanfgVZceH10nMsAWRleo+A4FXx55n8oCvryJF/L2jJzg5Gm5UUrBuZtyNM4KkYRklaIPTOx5WyBCIqz8GLpgcKvJVJSKiu33Exv+SrdSOJZhF2kmcxi1FqRS9+VZ53Buc2nasxcuta/FD6gWmAmvGKVB/u+xKqISmNd7/bN7/yT+EJGRQLts7QV5nsNktVNLx1UkU8I9arRrHlvvWjkF1MOUTIPuQ28+JMW2weTdA5Y3yAps7gLPc8MJ9pNdLYYV7wE28G/qOL0IorIuY+LhsUZF2oQHDDhGwXl3f4aJPtmtMDKbt+vhhhFXQSdAP+UYFbZLeEzymjX/sTI2e4VNThHzBhtpueVBmk1aVL1ch9Jvm8gQL/QUrRH8CE64AFTctE5JFUvqqBxRfTprLjTakJ1Sp0gVFgHTH+yPLPy58zWGbUoQA/Uw9Y1f1exUYJKdCXxIlvtBo/lfTcgOUcNJpiRg51hXpJGus7dgnVCYw6QgrIdSipC4siJMlJiIrwSvlRZlrGbTK9vapW5lcVoy/l7SJxoCeM3AzHofRyvm6+Fgvkdd5fFEH0DoFymmc3LiUTUxZLfxyI9FJZZ4SnoAYNtSRsM4DxVdQ+mIowo1h+MtJWyfSCxqjUO/gARNERaXgCKwA+SeABCJYvgXCqB7EImYBI=
+  app: dry-everglades-41379
+  on:
+    repo: joshhrycek/NodeCapstone
