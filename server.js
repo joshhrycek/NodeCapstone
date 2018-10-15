@@ -8,10 +8,6 @@ const app = express();
 
 app.use(express.static("public"));
 
-const playlistRoutes = require('./routes/playlistRoute');
-
-app.use('/playlist'. playlistRoutes);
-
 if (require.main === module) {
   app.listen(process.env.PORT || 8080, function() {
     console.info(`App listening on ${this.address().port}`);
