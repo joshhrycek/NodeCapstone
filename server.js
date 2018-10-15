@@ -3,10 +3,6 @@
 const express = require("express");
 const morgan = require("morgan");
 const config = require("./config.js");
-const mongoose = require("mongoose");
-
-
-mongoose.connect(config.DATABASE_URL);
 
 const app = express();
 
