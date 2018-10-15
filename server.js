@@ -8,7 +8,6 @@ const app = express();
 
 app.use(express.static("public"));
 
-const userRoutes = require('./routes/userRoute');
 const playlistRoutes = require('./routes/playlistRoute');
 
 app.use('/playlist'. playlistRoutes);
