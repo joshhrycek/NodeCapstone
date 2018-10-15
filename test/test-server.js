@@ -40,3 +40,25 @@ describe("dashboard page", function() {
       });
   });
 });
+
+describe("signup page", function() {
+  it("should exist", function() {
+    return chai
+      .request(app)
+      .get("/signup.html")
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
+
+describe("playlist page", function() {
+  it("should exist", function() {
+    return chai
+      .request(app)
+      .get("/playlist.html")
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
