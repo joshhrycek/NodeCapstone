@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {Playlist} = require('./model/playlist');
+const {Playlist} = require('./model/playlist.js');
 
 router.get('/', (req, res) => {
     res.json(Playlist.get());
