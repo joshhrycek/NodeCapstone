@@ -29,7 +29,11 @@
     float: left;
 }
 
-.songs-list{
+.songs-list, .playlist-list{
     list-style: none;
     padding: 0;
+}
+
+.song-search{
+    width: 525px;
 }
