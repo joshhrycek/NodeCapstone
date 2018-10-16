@@ -69,26 +69,25 @@ function getPlaylist(callbackFn) {
 
 function displaySongs(data) {
     for (index in data.songs) {
-	   $('body').append(
-        `<p>${data.songs[index].name}</br>
+	   $('.songs-list').append(
+        `<li class="song col-5"><input type="checkbox" value =""> ${data.songs[index].name}</br>
         By: ${ data.songs[index].artist}</br>
-        From: ${data.songs[index].album}</p>`);
+        From: ${data.songs[index].album}</li>`);
     }
 }
-
 
 
 function displayPlaylist(data) {
     for (index in data.playlists) {
-	   $('body').append(
-        `<p> Name: ${data.playlists[index].name}</br>
+	   $('.users-playlists').append(
+        `<li> Name: ${data.playlists[index].name}</br>
         Description: ${data.playlists[index].description}</br>
-        Songs: ${data.playlists[index].songs}</p>`);
+        Songs: ${data.playlists[index].songs}</li>`);
     }
 }
 
 
-function getAndDisplaysongs() {
+function getAndDisplaySongs() {
 	getSongs(displaySongs);
 }
 
@@ -97,5 +96,5 @@ function getAndDisplayPlaylist() {
 }
 
 
-$(getAndDisplaysongs)
+$(getAndDisplaySongs)
 $(getAndDisplayPlaylist)

@@ -22,3 +22,14 @@
 *{
     box-sizing: border-box;
 }
+
+.songs-box, .playlist-maker, .add-and-remove-buttons{
+    border: 1px gray solid;
+    display: inline-block;
+    float: left;
+}
+
+.songs-list{
+    list-style: none;
+    padding: 0;
+}
