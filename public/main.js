@@ -83,7 +83,7 @@ function displaySongs(data) {
 
 function displayPlaylist(data) {
     for (index in data.playlists) {
-	   $('.users-playlists').append(
+	   $('.current-list-container').append(
         `<li class= "playlists"> Name: ${data.playlists[index].name}</br>
         Description: ${data.playlists[index].description}</br>
         Songs: ${data.playlists[index].songs}</li>`);
@@ -113,7 +113,6 @@ function addSongsToPlaylist() {
     for (i = 0; i < SONGS_TO_ADD.length; i++) {
         let id = SONGS_TO_ADD[i]
         let items = MOCK_SONGS.songs.find(i => i.id === id);
-        console.log(items)
         $('.playlist-list').append(
             `<li class="song col-12">
                 <input type="checkbox" class="song-checkbox" data-song-id="${items.id}">
@@ -122,6 +121,7 @@ function addSongsToPlaylist() {
                 From: ${items.album}
             </li>`)
      };
+     SONGS_TO_ADD = [];
 }
 
 function removeSongFromPlaylist() {
@@ -145,11 +145,35 @@ function watchAddAndRemoveButtons(){
     watchRemoveButton();
 }
 
+function watchPlaylistButton() {
+    $('.users-playlist-button').on('click', event => {
+        getAndDisplayPlaylist();
+    });
+}
+
+function watchCollabButton() {
+    $('.collab-playlist-button').on('click', event => {
+        console.log("clicked")
+    });
+}
+
+function watchCatalogButton() {
+    $('.playlist-catalog-button').on('click', event => {
+        console.log("clicked")
+    });
+}
+
+function watchDashboardButtons() {
+    watchPlaylistButton();
+    watchCollabButton();
+    watchCatalogButton();
+}
+
 function startApp() {
-    getAndDisplayPlaylist();
     getAndDisplaySongs();
     selectSongs();
     watchAddAndRemoveButtons();
+    watchDashboardButtons();
 }
 
 $(startApp)
