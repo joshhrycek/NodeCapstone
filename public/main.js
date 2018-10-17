@@ -5,43 +5,43 @@ const API_KEY = "18EB45A9A97353A2EDAB03957312534B"
 let MOCK_SONGS = {
 	"songs": [
         {
-            "id": "1",
+            "id": 1,
             "name": "Sweet Leaf",
             "artist": "Black Sabbath",
             "album": "Master of Reality",
         },
         {
-            "id": "2",
+            "id": 2,
             "name": "Funeraloplois",
             "artist": "Electric Wizard",
             "album": "Dopethrone",
         },
         {
-            "id": "3",
+            "id": 3,
             "name": "Space Cadet",
             "artist": "Kyruss",
             "album": "Welcome to Sky Valley",
         },
         {
-            "id": "4",
+            "id": 4,
             "name": "Rhymes like Dimes",
             "artist": "MF Doom",
             "album": "Operation Doomsday",
         },
         {
-            "id": "5",
+            "id": 5,
             "name": "Hold on",
             "artist": "Tom Waits",
             "album": "Mule Variations",
         },
         {
-            "id": "6",
+            "id": 6,
             "name": "Windowlicker",
             "artist": "Aphex Twin",
             "album": "Windowlicker",
         },
         {
-            "id": "7",
+            "id": 7,
             "name": "Roygbiv",
             "artist": "Boards of Canada",
             "album": "Music has the Right to Children",
@@ -103,33 +103,53 @@ function selectSongs() {
         let current = event.currentTarget.checked;
         console.log(`Current Selection is ${current}`)
         let songId = $(event.currentTarget).data('song-id');
-        songId = parseInt(songId, 10);
-
         if(current === true){
             SONGS_TO_ADD.push(songId);
-        }else{
-            SONGS_TO_ADD.slice();
         };
-
     });
 }
 
-function addSongToPlaylist() {
-    $('.add').on('click', event => {
-        let query = $('.')
-    });
+function addSongsToPlaylist() {
+    for (i = 0; i < SONGS_TO_ADD.length; i++) {
+        let id = SONGS_TO_ADD[i]
+        let items = MOCK_SONGS.songs.find(i => i.id === id);
+        console.log(items)
+        $('.playlist-list').append(
+            `<li class="song col-12">
+                <input type="checkbox" class="song-checkbox" data-song-id="${items.id}">
+                ${items.name}</br>
+                By: ${items.artist}</br>
+                From: ${items.album}
+            </li>`)
+     };
 }
 
 function removeSongFromPlaylist() {
+
+}
+
+function watchAddButton() {
+    $('.add').on('click', event => {
+        addSongsToPlaylist();
+    });
+}
+
+function watchRemoveButton() {
     $('.remove').on('click', event =>{
         let query = $('.')
     });
+}
+
+function watchAddAndRemoveButtons(){
+    watchAddButton();
+    watchRemoveButton();
 }
 
 function startApp() {
     getAndDisplayPlaylist();
     getAndDisplaySongs();
     selectSongs();
+    watchAddAndRemoveButtons();
 }
 
 $(startApp)
