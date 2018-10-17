@@ -56,7 +56,18 @@ describe("playlist page", function() {
   it("should exist", function() {
     return chai
       .request(app)
-      .get("/playlist.html")
+      .get("/edit-playlist.html")
+      .then(function(res) {
+        expect(res).to.have.status(200);
+      });
+  });
+});
+
+describe("collab page", function() {
+  it("should exist", function() {
+    return chai
+      .request(app)
+      .get("/collab-playlist.html")
       .then(function(res) {
         expect(res).to.have.status(200);
       });

@@ -1,3 +1,5 @@
+const API_KEY = "18EB45A9A97353A2EDAB03957312534B"
+
 // this is mock data, but when we create our API
 // we'll have it return data that looks like this
 let MOCK_SONGS = {
@@ -12,7 +14,7 @@ let MOCK_SONGS = {
             "id": "2",
             "name": "Funeraloplois",
             "artist": "Electric Wizard",
-            "album": "Funeralopolis",
+            "album": "Dopethrone",
         },
         {
             "id": "3",
@@ -59,6 +61,8 @@ let MOCK_PLAYLISTS = {
     ]
 };
 
+let SONGS_TO_ADD = []
+
 function getSongs(callbackFn) {
 	setTimeout(function(){ callbackFn(MOCK_SONGS)}, 1);
 }
@@ -70,7 +74,7 @@ function getPlaylist(callbackFn) {
 function displaySongs(data) {
     for (index in data.songs) {
 	   $('.songs-list').append(
-        `<li class="song col-5"><input type="checkbox" value =""> ${data.songs[index].name}</br>
+        `<li class="song col-12"><input type="checkbox" class="song-checkbox" data-song-id="${data.songs[index].id}"> ${data.songs[index].name}</br>
         By: ${ data.songs[index].artist}</br>
         From: ${data.songs[index].album}</li>`);
     }
@@ -80,12 +84,11 @@ function displaySongs(data) {
 function displayPlaylist(data) {
     for (index in data.playlists) {
 	   $('.users-playlists').append(
-        `<li> Name: ${data.playlists[index].name}</br>
+        `<li class= "playlists"> Name: ${data.playlists[index].name}</br>
         Description: ${data.playlists[index].description}</br>
         Songs: ${data.playlists[index].songs}</li>`);
     }
 }
-
 
 function getAndDisplaySongs() {
 	getSongs(displaySongs);
@@ -95,6 +98,38 @@ function getAndDisplayPlaylist() {
     getPlaylist(displayPlaylist);
 }
 
+function selectSongs() {
+    $('.songs-list').on('change','.song-checkbox', event => {
+        let current = event.currentTarget.checked;
+        console.log(`Current Selection is ${current}`)
+        let songId = $(event.currentTarget).data('song-id');
+        songId = parseInt(songId, 10);
 
-$(getAndDisplaySongs)
-$(getAndDisplayPlaylist)
+        if(current === true){
+            SONGS_TO_ADD.push(songId);
+        }else{
+            SONGS_TO_ADD.slice();
+        };
+
+    });
+}
+
+function addSongToPlaylist() {
+    $('.add').on('click', event => {
+        let query = $('.')
+    });
+}
+
+function removeSongFromPlaylist() {
+    $('.remove').on('click', event =>{
+        let query = $('.')
+    });
+}
+
+function startApp() {
+    getAndDisplayPlaylist();
+    getAndDisplaySongs();
+    selectSongs();
+}
+
+$(startApp)

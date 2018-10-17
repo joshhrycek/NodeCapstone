@@ -25,15 +25,18 @@
 
 .songs-box, .playlist-maker, .add-and-remove-buttons{
     border: 1px gray solid;
-    display: inline-block;
     float: left;
 }
 
 .songs-list, .playlist-list{
     list-style: none;
-    padding: 0;
+    padding-left: 10;
 }
 
 .song-search{
     width: 525px;
+}
+
+.song, .playlists, .songinplaylist{
+    margin: 10px 0px 10px 0px;
 }
